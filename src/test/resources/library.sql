@@ -3,3 +3,4 @@ SELECT COUNT(id) from users;
 SELECT COUNT(DISTINCT id) from users;
 
 select * from users;
+select name from book_categories;
