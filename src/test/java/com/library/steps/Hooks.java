@@ -1,6 +1,7 @@
 package com.library.steps;
 
 import com.library.utility.ConfigurationReader;
+import com.library.utility.DB_Util;
 import com.library.utility.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -12,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Hooks {
 
-    @Before
+    @Before("@ui")
     public void setUp(){
         System.out.println("this is coming from BEFORE");
         Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -22,7 +23,8 @@ public class Hooks {
 
     }
 
-    @After
+
+    @After("@ui")
     public void tearDown(Scenario scenario){
         System.out.println("this is coming from AFTER");
 
@@ -34,6 +36,23 @@ public class Hooks {
         Driver.closeDriver();
 
     }
+
+    @Before("@db")
+    public void setUpDB(){
+        System.out.println("DB connection is DONE ");
+
+        DB_Util.createConnection();
+
+    }
+
+    @After("@db")
+    public void destroyDB(){
+        System.out.println("DB connection is closed ");
+
+        DB_Util.destroy();
+
+    }
+
 
 
 
