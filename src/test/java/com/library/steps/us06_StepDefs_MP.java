@@ -18,7 +18,7 @@ public class us06_StepDefs_MP {
     String actualName;
 
 
-    @Given("the {string} on the home page")
+    @Given("the {string} on the home page_MP")
     public void the_on_the_home_page_MP(String librarian) {
         loginPage.login(librarian);
         BrowserUtil.waitFor(1);
@@ -26,19 +26,19 @@ public class us06_StepDefs_MP {
 
 
 
-    @Given("the user navigates to {string} page")
+    @Given("the user navigates to {string} page_MP")
     public void the_user_navigates_to_page_MP(String Books) {
         bookPage.navigateModule(Books);
     }
 
 
-    @When("the librarian click to add book")
+    @When("the librarian click to add book_MP")
     public void the_librarian_click_to_add_book_MP() {
         bookPage.addBook.click();
     }
 
 
-    @When("the librarian enter book name {string}")
+    @When("the librarian enter book name {string}_MP")
     public void the_librarian_enter_book_name_MP(String bookName) {
         bookPage.bookName.sendKeys(bookName);
 
@@ -46,38 +46,38 @@ public class us06_StepDefs_MP {
     }
 
 
-    @When("the librarian enter ISBN {string}")
+    @When("the librarian enter ISBN {string}_MP")
     public void the_librarian_enter_isbn_MP(String isbn) {
         bookPage.isbn.sendKeys(isbn);
     }
 
 
-    @When("the librarian enter year {string}")
+    @When("the librarian enter year {string}_MP")
     public void the_librarian_enter_year_MP(String year) {
         bookPage.year.sendKeys(year);
     }
 
 
-    @When("the librarian enter author {string}")
+    @When("the librarian enter author {string}_MP")
     public void the_librarian_enter_author_MP(String author) {
         bookPage.author.sendKeys(author);
     }
 
 
-    @When("the librarian choose the book category {string}")
+    @When("the librarian choose the book category {string}_MP")
     public void the_librarian_choose_the_book_category_MP(String category) {
         Select select = new Select(bookPage.categoryDropdown);
         select.selectByVisibleText(category);
     }
 
 
-    @When("the librarian click to save changes")
+    @When("the librarian click to save changes_MP")
     public void the_librarian_click_to_save_changes_MP() {
         bookPage.saveChanges.click();
     }
 
 
-    @Then("verify {string} message is displayed")
+    @Then("verify {string} message is displayed_MP")
     public void verify_message_is_displayed_MP(String expectedMessage) {
         String actualMessage = bookPage.toastMessage.getText();
         BrowserUtil.waitFor(1);
@@ -88,7 +88,7 @@ public class us06_StepDefs_MP {
     }
 
 
-    @Then("verify {string} information must match with DB")
+    @Then("verify {string} information must match with DB_MP")
     public void verify_information_must_match_with_db_MP(String book) {
 
         /*
