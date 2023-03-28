@@ -29,11 +29,11 @@ loginPage.login(userType);
     @When("the user clicks book categories TK")
     public void the_user_clicks_book_categories_TK() {
         BrowserUtil.waitFor(2);
-        bookPage.categoryDropdown.click();
+        bookPage.mainCategoryElement.click();
     }
     @Then("verify book categories must match book_categories table from db TK")
     public void verify_book_categories_must_match_book_categories_table_from_db_TK() {
-        actualCategories = BrowserUtil.getAllSelectOptions(bookPage.categoryDropdown);
+        actualCategories = BrowserUtil.getAllSelectOptions(bookPage.mainCategoryElement);
         actualCategories.remove(0);
         System.out.println("actualCategories = " + actualCategories);
 
