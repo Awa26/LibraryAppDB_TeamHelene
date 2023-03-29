@@ -15,3 +15,7 @@ where name = 'Marko Petrovic - SR';
 
 select name from book_categories;
 
+SELECT COUNT(id) from users;
+SELECT COUNT(DISTINCT id) from users;
+
+SELECT * from users;
