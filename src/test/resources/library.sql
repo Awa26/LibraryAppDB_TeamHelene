@@ -19,3 +19,8 @@ SELECT COUNT(id) from users;
 SELECT COUNT(DISTINCT id) from users;
 
 SELECT * from users;
+
+SELECT count(*) from book_borrow
+where is_returned=0;
+
+
