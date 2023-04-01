@@ -60,6 +60,11 @@ public class BookPage extends BasePage {
         return Driver.getDriver().findElement(By.xpath(xpath));
     }
 
+    public List<WebElement> ableToBorrowBook(String bookName){
+        String xpath = "//td[.='" + bookName + "']/../td/a[not(contains(@class,'disabled'))]";
+        return Driver.getDriver().findElements(By.xpath(xpath));
+    }
+
 
 
 }
