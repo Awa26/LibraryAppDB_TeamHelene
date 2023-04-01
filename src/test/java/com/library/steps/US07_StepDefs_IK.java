@@ -3,6 +3,7 @@ package com.library.steps;
 import com.library.pages.BookPage;
 import com.library.pages.BorrowedBooksPage;
 import com.library.pages.LoginPage;
+import com.library.utility.BrowserUtil;
 import com.library.utility.DB_Util;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
@@ -97,5 +98,30 @@ public class US07_StepDefs_IK {
         System.out.println("actualResult = " + actualResult);
         Assert.assertTrue(actualResult.contains(expectedTime));
 
+    }
+
+    @And("the book is currently not available for borrowing IK")
+    public void theBookIsCurrentlyNotAvailableForBorrowingIK() {
+
+
+    }
+
+    @Then("verify that Borrow button is not clickable Ik")
+    public void verifyThatBorrowButtonIsNotClickableIk() {
+         bookPage = new BookPage();
+        //System.out.println("bookPage.student33DisabledBorrow.isEnabled() = " + bookPage.student33DisabledBorrow.isEnabled());
+        Assert.assertTrue(bookPage.student33DisabledBorrow.getAttribute("class").contains("disabled"));
+    }
+
+    @And("verify that this book is in the Borrowed_books in the database IK")
+    public void verifyThatThisBookIsInTheBorrowed_booksInTheDatabaseIK() {
+        String query = "select is_returned from book_borrow\n" +
+                "join users u on u.id = book_borrow.user_id\n" +
+                "where full_name = 'Test Student 33'\n" +
+                "order by borrowed_date desc;";
+        DB_Util.runQuery(query);
+        String actual = DB_Util.getFirstRowFirstColumn();
+        String expected = "0";
+        Assert.assertEquals(expected, actual);
     }
 }

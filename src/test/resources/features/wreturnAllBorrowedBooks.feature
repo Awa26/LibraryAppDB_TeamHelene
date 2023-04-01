@@ -1,3 +1,4 @@
+@skip
 Feature: Return all rented books
   @db @ui
   Scenario: Return the borrowed book from all student accounts

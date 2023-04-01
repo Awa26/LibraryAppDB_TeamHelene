@@ -34,9 +34,7 @@ select distinct * from (select * from book_borrow
 where is_returned = 0) t
 join users u on t.user_id = u.id;
 
-delete * from book_borrow
-join users u on u.id = book_borrow.user_id
-where email like 'student33%';
+
 
 
 SELECT COUNT(id) from users;
@@ -47,4 +45,7 @@ SELECT * from users;
 SELECT count(*) from book_borrow
 where is_returned=0;
 
-
+select is_returned from book_borrow
+join users u on u.id = book_borrow.user_id
+where full_name = 'Test Student 33'
+order by borrowed_date desc;
