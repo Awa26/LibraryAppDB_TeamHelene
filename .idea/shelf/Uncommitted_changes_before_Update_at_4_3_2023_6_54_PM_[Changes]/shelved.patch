@@ -1,0 +1,23 @@
+Index: src/test/java/com/library/runner/CukesRunner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.library.runner;\r\n\r\nimport io.cucumber.junit.Cucumber;\r\nimport io.cucumber.junit.CucumberOptions;\r\nimport org.junit.runner.RunWith;\r\n\r\n@RunWith(Cucumber.class)\r\n@CucumberOptions(\r\n\r\n        plugin = {\r\n                \"html:target/cucumber-report.html\",\r\n                \"rerun:target/rerun.txt\" ,\r\n                \"me.jvt.cucumber.report.PrettyReports:target/cucumber\"\r\n        },\r\n        features = \"src/test/resources/features\" ,\r\n        glue = \"com/library/steps\",\r\n        dryRun = true,\r\n        tags = \"@wip\"\r\n)\r\npublic class CukesRunner {\r\n\r\n}\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/test/java/com/library/runner/CukesRunner.java b/src/test/java/com/library/runner/CukesRunner.java
+--- a/src/test/java/com/library/runner/CukesRunner.java	(revision 560fb2acc80b2765e520e114a824833772717303)
++++ b/src/test/java/com/library/runner/CukesRunner.java	(date 1680562463068)
+@@ -14,8 +14,10 @@
+         },
+         features = "src/test/resources/features" ,
+         glue = "com/library/steps",
+-        dryRun = true,
+-        tags = "@wip"
++        dryRun = false,
++
++        tags = "@us04_AC"
++
+ )
+ public class CukesRunner {
+ 
