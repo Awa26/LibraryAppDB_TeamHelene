@@ -35,29 +35,7 @@ public class LoginPage {
         loginButton.click();
 
     }
-    public void login(String userType, int studentID){
 
-        String username= userType + studentID + "@library";
-        String password=ConfigurationReader.getProperty(userType+"_password");
-
-
-        emailBox.sendKeys(username);
-        passwordBox.sendKeys(password);
-        loginButton.click();
-
-    }
-
-    public void login(String email, String userPass) {
-
-        String username = email;
-        String password = ConfigurationReader.getProperty(userPass);
-
-
-        emailBox.sendKeys(username);
-        passwordBox.sendKeys(password);
-        loginButton.click();
-
-    }
 
 
 

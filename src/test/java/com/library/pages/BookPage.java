@@ -48,9 +48,6 @@ public class BookPage extends BasePage {
     @FindBy(id = "description")
     public WebElement description;
 
-    @FindBy(xpath = "//td[.='Test Student 33']/../td/a")
-    public WebElement student33DisabledBorrow;
-
 
 
     public WebElement editBook(String book) {
@@ -61,11 +58,6 @@ public class BookPage extends BasePage {
     public WebElement borrowBook(String book) {
         String xpath = "//td[3][.='" + book + "']/../td/a";
         return Driver.getDriver().findElement(By.xpath(xpath));
-    }
-
-    public List<WebElement> ableToBorrowBook(String bookName){
-        String xpath = "//td[.='" + bookName + "']/../td/a[not(contains(@class,'disabled'))]";
-        return Driver.getDriver().findElements(By.xpath(xpath));
     }
 
 
